@@ -6,15 +6,12 @@ import getMailId from '../common/getMailId';
 import MailSumary from './MailSumary';
 
 const MailSumarySidebar = () => {
-  const [isActive, setIsActive] = useState(0);
+  const [isActive, setIsActive] = useState(99999999999999999999999999999);
   const navigate = useNavigate();
   const location = useLocation();
 
   const folderTarget = getFolderName(location.pathname);
   const { mailId, isMailIdValid } = getMailId(location.pathname);
-
-  console.log('mailId', mailId);
-  console.log('isMailIdValid', isMailIdValid);
 
   function handleClickOnLink(mail: any, index: number) {
     navigate(`email/${folderTarget}/${mail._id}`);
@@ -28,11 +25,13 @@ const MailSumarySidebar = () => {
     }
   });
 
-  useEffect(() => {}, [location.pathname]);
+  useEffect(() => {
+    setIsActive(9999999999999999999999999);
+  }, [folderTarget]);
 
   return (
     <div
-      className={`h-full w-1/5  flex flex-col items-center justify-start border-r-[1px] ${
+      className={`h-full w-1/5 flex flex-col items-center justify-start border-r-[1px] ${
         targetMail.length > 0 ? 'overflow-y-scroll' : 'border-r-2'
       } grab-to-change-size-left`}
     >

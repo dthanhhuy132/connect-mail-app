@@ -11,22 +11,20 @@ import DashBoard from './page/DashBoard';
 import Login from './page/LoginPage';
 
 function App() {
-  const [isLogin, seIsLogin] = useState(false)
+  const [isLogin, seIsLogin] = useState(false);
   let navigate = useNavigate();
 
   useEffect(() => {
-    if(!isLogin) {
-        navigate("/login");
+    if (!isLogin) {
+      // navigate('/login');
     }
   }, []);
 
   return (
     <div className="App">
       <Routes>
-        <Route path="/login" element={<Login seIsLogin={seIsLogin}/>} />
+        <Route path="/login" element={<Login seIsLogin={seIsLogin} />} />
         <Route path="/main/*" element={<DashBoard />}></Route>
-        
-      
       </Routes>
     </div>
   );

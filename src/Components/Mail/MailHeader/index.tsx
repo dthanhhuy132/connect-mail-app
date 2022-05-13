@@ -2,6 +2,7 @@ import { useLocation } from 'react-router-dom';
 
 import HuyDoan from '../../../assets/img/HuyDoan.jpg';
 import getMailId from '../../common/getMailId';
+import renderNameAndSubject from '../../common/renderNameAndSubject';
 
 const MailHeader: React.FC = () => {
   const location = useLocation();
@@ -12,7 +13,7 @@ const MailHeader: React.FC = () => {
   return (
     <div className="header h-[60px] w-full p-[10px] flex-shrink-0 text-left flex justify-start shadow-md ">
       <div className="flex justify-between items-center w-full">
-        <div className="text-[1.4rem]">
+        <div className="text-[1.4rem] flex items-center">
           Pathname:
           {pathname
             .split('/')
@@ -20,7 +21,9 @@ const MailHeader: React.FC = () => {
             .map((path, index) => {
               return (
                 <span key={index} className="font-bold ml-2 capitalize">
-                  {path === mailId && isMailIdValid ? 'Con cho nay' : path}
+                  {path === mailId && isMailIdValid
+                    ? renderNameAndSubject(mailId, isMailIdValid)
+                    : path}
                   {index !== pathname.split('/').filter((x) => x !== '').length - 1 && (
                     <i className="fa-solid fa-caret-right ml-2"></i>
                   )}
