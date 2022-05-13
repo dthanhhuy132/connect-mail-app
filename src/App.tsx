@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import SideBar from './Components';
+import Mail from './Components/Mail';
+import FolderSideBar from './Components/SideBar/FolderSideBar';
+import MainSideBar from './Components/SideBar/MainSideBar';
+
+import DashBoard from './page/DashBoard';
+import Login from './page/LoginPage';
+
 function App() {
+  const [isLogin, seIsLogin] = useState(false)
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    if(!isLogin) {
+        navigate("/login");
+    }
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/login" element={<Login seIsLogin={seIsLogin}/>} />
+        <Route path="/main/*" element={<DashBoard />}></Route>
+        
+      
+      </Routes>
     </div>
   );
 }

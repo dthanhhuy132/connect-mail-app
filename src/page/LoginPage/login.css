@@ -1,0 +1,118 @@
+.login {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: var(--main-color);
+
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+.login-container {
+  width: 500px;
+  margin: 0 auto;
+  padding: 70px 30px;
+  border-radius: var(--border-radius);
+  background-color: #fff;
+}
+
+.form-login {
+  width: 100%;
+  text-align: left;
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form__control-wrapper {
+}
+
+.form-label {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.form__control {
+  min-width: 100%;
+
+  border: 1px solid var(--main-color);
+  padding: 10px 10px;
+  border-radius: 5px;
+
+  font-size: 1.5rem;
+
+  margin-top: 5px;
+}
+
+.login-btn-submit {
+  margin-top: 30px;
+  border: none;
+  background-color: var(--main-color);
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.login-form-error {
+  color: red;
+  margin-top: 5px;
+  font-size: 1.3rem;
+}
+
+.password-icon {
+  position: absolute;
+  top: 55%;
+  transform: translateY(-50%);
+  right: 8px;
+
+  padding: 5px;
+  cursor: pointer;
+  color: #999;
+
+  z-index: 10;
+}
+
+.password-icon:hover {
+  color: #111;
+}
+
+select.gray {
+  color: #aaa;
+}
+
+select option {
+  color: black;
+  padding: 20px;
+}
+
+select {
+  margin: 0;
+  vertical-align: top;
+  padding: 5px 60px 5px 8px;
+  background-color: #fff;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/4b/Feather-arrows-chevron-down.svg");
+  background-position: 95% center;
+  background-position: right 8px center;
+  background-repeat: no-repeat;
+  background-size: 18px;
+  border: 2px solid #999;
+  border-radius: 3px;
+  /* -webkit-appearance: button; */
+  -webkit-border-radius: 3px;
+  -webkit-padding-end: 30px;
+  -webkit-padding-start: 8px;
+  -webkit-user-select: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: border 300ms;
+}
