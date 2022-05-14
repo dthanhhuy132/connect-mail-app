@@ -1,14 +1,14 @@
 import { useLocation } from 'react-router-dom';
 
 import HuyDoan from '../../../assets/img/HuyDoan.jpg';
-import getMailId from '../../common/getMailId';
 import renderNameAndSubject from '../../common/renderNameAndSubject';
+import getAndCheckMailId from '../../common/getAndCheckMailId';
 
 const MailHeader: React.FC = () => {
   const location = useLocation();
   const pathname = location.pathname;
 
-  let { mailId, isMailIdValid } = getMailId(pathname);
+  let { mailId, isMailIdValid } = getAndCheckMailId(pathname);
 
   return (
     <div className="header h-[60px] w-full p-[10px] flex-shrink-0 text-left flex justify-start shadow-md ">

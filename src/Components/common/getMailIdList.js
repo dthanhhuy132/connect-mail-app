@@ -1,15 +1,14 @@
-import message from '../../mockData'
-
+import message from '../../mockData';
 
 const getMailIdList = () => {
   let mailIdList = [];
-  message.forEach(mail => {
-    if(!mailIdList[mail._id]) {
-      mailIdList.push(mail._id)
+  message.forEach((mail) => {
+    if (!mailIdList[mail._id]) {
+      mailIdList.push(mail._id);
     }
-  })
+  });
 
-  return mailIdList
-}
+  return mailIdList;
+};
 
-export default getMailIdList
+export default getMailIdList;

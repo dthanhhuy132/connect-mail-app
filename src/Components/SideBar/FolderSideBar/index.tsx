@@ -11,7 +11,6 @@ const FolderSideBar: FC = () => {
     setIsActive(index);
   }
 
-
   useEffect(() => {
     if (location.pathname.indexOf('email') === -1) {
       setIsContruction(true);

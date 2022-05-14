@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import message from '../../mockData';
 import getFolderName from '../common/getFolderName';
-import getMailId from '../common/getMailId';
+import getAnhCheckMailId from '../common/getAndCheckMailId';
 import MailSumary from './MailSumary';
+
+import contructionImg from '../../assets/img/contruction.png';
 
 const MailSumarySidebar = () => {
   const [isActive, setIsActive] = useState(99999999999999999999999999999);
@@ -11,7 +13,7 @@ const MailSumarySidebar = () => {
   const location = useLocation();
 
   const folderTarget = getFolderName(location.pathname);
-  const { mailId, isMailIdValid } = getMailId(location.pathname);
+  const { mailId, isMailIdValid } = getAnhCheckMailId(location.pathname);
 
   function handleClickOnLink(mail: any, index: number) {
     navigate(`email/${folderTarget}/${mail._id}`);
@@ -31,7 +33,7 @@ const MailSumarySidebar = () => {
 
   return (
     <div
-      className={`h-full w-1/5 flex flex-col items-center justify-start border-r-[1px] ${
+      className={`h-full w-1/4 flex flex-col items-center justify-start border-r-[1px] ${
         targetMail.length > 0 ? 'overflow-y-scroll' : 'border-r-2'
       } grab-to-change-size-left`}
     >

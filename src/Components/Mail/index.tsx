@@ -7,7 +7,7 @@ import message from '../../mockData';
 import { useLocation } from 'react-router-dom';
 import changeWidthSize from '../common/changeWidth';
 import MailDetail from './MailDetail';
-import MailSumarySidebar from './MailSumarySidebar';
+import MailSummarySidebar from './MailSummarySidebar';
 
 const Mail: React.FC = () => {
   const location = useLocation();
@@ -29,8 +29,9 @@ const Mail: React.FC = () => {
     <>
       <MailHeader />
 
-      <div className=" w-full h-full flex items-center pb-[60px] ">
-        <MailSumarySidebar />
+      <div className=" w-full h-full flex items-center pb-[60px] mail-parent relative">
+        <div className="absolute top-0 bg-transparent z-10 w-[5px] h-full cursor-col-resize change-size-bar hidden"></div>
+        <MailSummarySidebar />
         <MailDetail />
       </div>
     </>

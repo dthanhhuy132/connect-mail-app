@@ -1,6 +1,6 @@
 import getMailIdList from './getMailIdList';
 
-const getMailId = (pathname) => {
+const getAndCheckMailId = (pathname) => {
   let mailId;
   let isMailIdValid = false;
 
@@ -14,4 +14,4 @@ const getMailId = (pathname) => {
   return { mailId, isMailIdValid };
 };
 
-export default getMailId;
+export default getAndCheckMailId;
