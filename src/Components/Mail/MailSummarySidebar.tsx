@@ -6,14 +6,15 @@ import getAnhCheckMailId from '../common/getAndCheckMailId';
 import MailSumary from './MailSumary';
 
 import contructionImg from '../../assets/img/contruction.png';
+import randomUnreadEmail from '../common/randomUnreadEmail';
 
 const MailSumarySidebar = () => {
   const [isActive, setIsActive] = useState(99999999999999999999999999999);
+  const [randomArr, setRandomArr] = useState(randomUnreadEmail(15));
   const navigate = useNavigate();
   const location = useLocation();
 
   const folderTarget = getFolderName(location.pathname);
-  const { mailId, isMailIdValid } = getAnhCheckMailId(location.pathname);
 
   function handleClickOnLink(mail: any, index: number) {
     navigate(`email/${folderTarget}/${mail._id}`);
@@ -27,8 +28,11 @@ const MailSumarySidebar = () => {
     }
   });
 
+  // let = randomUnreadEmail(targetMail.length);
+
   useEffect(() => {
     setIsActive(9999999999999999999999999);
+    setRandomArr(randomUnreadEmail(targetMail.length));
   }, [folderTarget]);
 
   return (
@@ -44,7 +48,7 @@ const MailSumarySidebar = () => {
             className={`${isActive === index ? 'mail-sumary-active' : ''}`}
             onClick={() => handleClickOnLink(item, index)}
           >
-            <MailSumary mail={item} index={index} />
+            <MailSumary mail={item} index={index} randomArr={randomArr} />
           </div>
         ))}
     </div>

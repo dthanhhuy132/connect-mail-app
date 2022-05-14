@@ -5,20 +5,33 @@ import tuc from '../../assets/img/Tuc.jpg';
 import huang from '../../assets/img/Huang.jpg';
 import fun from '../../assets/img/Fun.jpg';
 import changeWidthSize from '../common/changeWidth';
+import randomAvatar from '../common/randomAvatar';
+import randomUnreadEmail from '../common/randomUnreadEmail';
 
 interface MailSumaryProps {
-  index?: number;
+  index: number;
   mail: any;
+  randomArr: number[];
 }
 
-const MailSumary: React.FC<MailSumaryProps> = ({ index, mail }) => {
-  const [isActive, setIsActive] = useState(false);
+const MailSumary: React.FC<MailSumaryProps> = ({ index, mail, randomArr }) => {
+  const [isRead, setIsRead] = useState(false);
+
+  function handleOnlickToReadMail() {
+    setIsRead(true);
+  }
 
   return (
-    <div className="w-full p-4 pt-6 flex border-grey-light-hd">
+    <div
+      className={`w-full p-4 pt-6 flex border-grey-light-hd 
+      ${randomArr.indexOf(index) > -1 ? 'bg-[#e5e7eb]' : ''}
+      
+      ${isRead && 'bg-[white]'}`}
+      onClick={handleOnlickToReadMail}
+    >
       <div className="min-w-[50px] mr-5">
         <img
-          src={tuc}
+          src={randomAvatar(mail.senderName.first)}
           alt=""
           className="w-[50px] h-[50px] onject-center object-cover rounded-full"
         />

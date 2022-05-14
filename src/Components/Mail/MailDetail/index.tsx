@@ -5,6 +5,7 @@ import huang from '../../../assets/img/Huang.jpg';
 import getAndCheckMailId from '../../common/getAndCheckMailId';
 import getEmailFormEmail from '../../common/getEmailFromEmail';
 import getMailDetail from '../../common/getMailDetail';
+import randomAvatar from '../../common/randomAvatar';
 import MailDetailButton from './MailDetailButton';
 
 const MailDetail: React.FC = () => {
@@ -12,10 +13,6 @@ const MailDetail: React.FC = () => {
 
   const { mailId, isMailIdValid } = getAndCheckMailId(location.pathname);
   let email: any = getMailDetail(mailId, isMailIdValid);
-
-  console.log('email', email);
-
-  useEffect(() => {}, [location.pathname]);
 
   return (
     <div className="h-full w-3/4 text-left grab-to-change-size-right relative">
@@ -26,7 +23,7 @@ const MailDetail: React.FC = () => {
               <div className="flex items-center sm:w-1/3 xl:w-1/5 gap-3">
                 <div>
                   <img
-                    src={huang}
+                    src={randomAvatar(email.senderName.first)}
                     alt=""
                     className="relative w-[70px] center center object-cover rounded-full max-width-unset"
                   />
