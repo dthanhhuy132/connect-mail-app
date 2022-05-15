@@ -1,0 +1,53 @@
+.dth-c-text {
+  animation: c-text 2s ease;
+  transform: rotate(360);
+  color: white;
+}
+
+@keyframes c-text {
+  0% {
+    color: red;
+  }
+  15% {
+    color: orange;
+  }
+  30% {
+    color: yellow;
+  }
+  45% {
+    color: green;
+  }
+  60% {
+    color: blue;
+  }
+  75% {
+    color: indigo;
+  }
+  10% {
+    color: violet;
+  }
+}
+
+.progress-bar {
+  position: absolute;
+  /* width: 100%; */
+  left: 10px;
+  right: 10px;
+  height: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 4px;
+  background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+  box-shadow: 1px 1px 50px 10px white;
+
+  animation: progress 2.5s ease-in-out;
+}
+
+@keyframes progress {
+  from {
+    right: 100%;
+  }
+  to {
+    right: 10px;
+  }
+}

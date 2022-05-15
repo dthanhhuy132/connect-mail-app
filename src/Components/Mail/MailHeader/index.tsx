@@ -3,12 +3,19 @@ import { useLocation } from 'react-router-dom';
 import HuyDoan from '../../../assets/img/HuyDoan.jpg';
 import renderNameAndSubject from '../../common/renderNameAndSubject';
 import getAndCheckMailId from '../../common/getAndCheckMailId';
+import PopUp from '../../Popup';
+import { useState } from 'react';
 
 const MailHeader: React.FC = () => {
+  const [isShowPopup, setIsShowPopup] = useState(false);
   const location = useLocation();
   const pathname = location.pathname;
 
   let { mailId, isMailIdValid } = getAndCheckMailId(pathname);
+
+  function setShowPopup() {
+    setIsShowPopup(!isShowPopup);
+  }
 
   return (
     <div className="header h-[60px] w-full p-[10px] flex-shrink-0 text-left flex justify-start shadow-md ">
@@ -44,9 +51,15 @@ const MailHeader: React.FC = () => {
               className="relative rounded-full object-cover w-[40px] h-[40px]"
             />
           </div>
-          <button className="bg-red-600 p-3 pr-6 pl-6 rounded-2xl flex justify-center items-center hover:bg-red-400">
-            <i className="fa-solid fa-power-off text-white text-[14px]"></i>
-          </button>
+          <div className="relative">
+            <button
+              className="bg-red-600 p-3 pr-6 pl-6 rounded-2xl flex justify-center items-center hover:bg-red-400"
+              onClick={setShowPopup}
+            >
+              <i className="fa-solid fa-power-off text-white text-[14px]"></i>
+            </button>
+            <PopUp isShowPopup={isShowPopup} handleClickCancel={setShowPopup} />
+          </div>
         </div>
       </div>
     </div>

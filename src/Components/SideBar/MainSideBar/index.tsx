@@ -1,7 +1,7 @@
 import path from 'path';
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const mainSideBar = [
   { icon: '<i class="fa-solid fa-house-chimney"></i>', path: 'home' },
@@ -10,7 +10,8 @@ const mainSideBar = [
 ];
 
 const MainSideBar: FC = () => {
-  const [isActive, setIsActive] = useState<number>(1);
+  const [isActive, setIsActive] = useState<number>(0);
+  const location = useLocation();
 
   function handleClickActive(index: number) {
     setIsActive(index);

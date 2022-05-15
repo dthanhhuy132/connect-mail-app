@@ -1,20 +1,14 @@
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
-
-import tuc from '../../assets/img/Tuc.jpg';
-import huang from '../../assets/img/Huang.jpg';
-import fun from '../../assets/img/Fun.jpg';
-import changeWidthSize from '../common/changeWidth';
 import randomAvatar from '../common/randomAvatar';
-import randomUnreadEmail from '../common/randomUnreadEmail';
 
 interface MailSumaryProps {
   index: number;
   mail: any;
   randomArr: number[];
+  isActive?: any;
 }
 
-const MailSumary: React.FC<MailSumaryProps> = ({ index, mail, randomArr }) => {
+const MailSumary: React.FC<MailSumaryProps> = ({ index, mail, randomArr, isActive }) => {
   const [isRead, setIsRead] = useState(false);
 
   function handleOnlickToReadMail() {
@@ -26,7 +20,8 @@ const MailSumary: React.FC<MailSumaryProps> = ({ index, mail, randomArr }) => {
       className={`w-full p-4 pt-6 flex border-grey-light-hd 
       ${randomArr.indexOf(index) > -1 ? 'bg-[#e5e7eb]' : ''}
       
-      ${isRead && 'bg-[white]'}`}
+      ${isRead && 'mail-sumary-unread'}
+      ${isActive === index ? 'mail-sumary-active' : ''}`}
       onClick={handleOnlickToReadMail}
     >
       <div className="min-w-[50px] mr-5">
@@ -37,7 +32,7 @@ const MailSumary: React.FC<MailSumaryProps> = ({ index, mail, randomArr }) => {
         />
       </div>
       <div className="">
-        <div className="flex justify-between font-medium text-gray-700 text-[1.3rem] mb-1">
+        <div className="flex justify-between font-[600] text-gray-800 text-[1.4rem] mb-1">
           <p className="line-clamp-1 text-left">
             {mail.senderName.first + ' ' + mail.senderName.last}
           </p>
@@ -45,7 +40,13 @@ const MailSumary: React.FC<MailSumaryProps> = ({ index, mail, randomArr }) => {
         </div>
 
         <p className="text-left line-clamp-1 text-[1.4rem] font-[500] mb-1">{mail.subject}</p>
-        <p className="text-left line-clamp-3 text-gray-500 text-[1.2rem]">{mail.body}</p>
+        <p
+          className={`text-left line-clamp-3 text-gray-500 text-[1.2rem] ${
+            isActive === index ? 'text-black' : ''
+          }`}
+        >
+          {mail.body}
+        </p>
       </div>
     </div>
   );

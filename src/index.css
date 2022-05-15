@@ -55,15 +55,19 @@ html {
   border-bottom: 1px solid #d1d5db;
 }
 
-.mail-sumary-active {
-  background-color: #3b82f6;
-  color: white !important;
-}
-
 .max-width-unset {
   max-width: unset;
 }
 
 .is-changing-size {
   user-select: none;
+}
+
+.mail-sumary-unread {
+  background-color: white;
+}
+
+.mail-sumary-active {
+  background-color: #3b82f6;
+  color: white !important;
 }

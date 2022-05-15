@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import huang from '../../../assets/img/Huang.jpg';
 import getAndCheckMailId from '../../common/getAndCheckMailId';
 import getEmailFormEmail from '../../common/getEmailFromEmail';
+import getFolderName from '../../common/getFolderName';
 import getMailDetail from '../../common/getMailDetail';
 import randomAvatar from '../../common/randomAvatar';
 import MailDetailButton from './MailDetailButton';
@@ -13,10 +14,16 @@ const MailDetail: React.FC = () => {
 
   const { mailId, isMailIdValid } = getAndCheckMailId(location.pathname);
   let email: any = getMailDetail(mailId, isMailIdValid);
+  let folderName = getFolderName(location.pathname);
+
+  const folderTarget = getFolderName(location.pathname);
+  useEffect(() => {
+    console.log('trong day can phai ren der cai gi do');
+  }, [folderTarget]);
 
   return (
     <div className="h-full w-3/4 text-left grab-to-change-size-right relative">
-      {email && (
+      {email ? (
         <div className="grid grid-cols-12 p-12">
           <div className="col-span-12">
             <div className="flex items-center justify-between">
@@ -53,6 +60,10 @@ const MailDetail: React.FC = () => {
             </div>
           </div>
         </div>
+      ) : folderName ? (
+        <p className="mt-5 text-[2rem] text-center">Please choose your email</p>
+      ) : (
+        <p className="mt-5 text-[2rem] text-center">Please choose your folder first</p>
       )}
     </div>
   );

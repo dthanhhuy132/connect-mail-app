@@ -1,3 +1,4 @@
+import 'animate.css';
 import './App.css';
 
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
@@ -9,21 +10,23 @@ import MainSideBar from './Components/SideBar/MainSideBar';
 
 import DashBoard from './page/DashBoard';
 import Login from './page/LoginPage';
+import LoadingPage from './page/LoadingPage';
 
 function App() {
-  const [isLogin, seIsLogin] = useState(false);
   let navigate = useNavigate();
 
   useEffect(() => {
-    if (!isLogin) {
-      // navigate('/login');
-    }
+    // navigate('/');
+    // if (!isLogin) {
+    //   navigate('/login');
+    // }
   }, []);
 
   return (
     <div className="App">
       <Routes>
-        <Route path="/login" element={<Login seIsLogin={seIsLogin} />} />
+        <Route path="/" element={<LoadingPage />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/main/*" element={<DashBoard />}></Route>
       </Routes>
     </div>

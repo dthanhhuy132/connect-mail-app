@@ -7,8 +7,6 @@ import huangOntheKnee from '../../assets/img/HuangOntheKnee.jpg';
 export default function randomAvatar(name) {
   let avatarAray = [huang, tuc, fun, vun, huangOntheKnee];
 
-  console.log(name);
-
   let rangeLetter = 25; //'a' - 'z'.charCodeAt()
   let avatarLength = avatarAray.length;
 

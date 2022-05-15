@@ -11,6 +11,7 @@ interface LoginProps {
 }
 const Login: React.FC<LoginProps> = ({ seIsLogin }) => {
   const [isShowPassword, setIsShowPassword] = useState(false);
+  const [isRememberMe, setIsRememberMe] = useState(false);
 
   const navigate = useNavigate();
   const {
@@ -25,9 +26,16 @@ const Login: React.FC<LoginProps> = ({ seIsLogin }) => {
   });
 
   const onSubmit = () => {
-    seIsLogin(true);
-    navigate('/main/email/inbox');
+    if (isRememberMe) {
+      localStorage.setItem('LOGIN_LUON_DI_EM_OI', JSON.stringify(isRememberMe));
+    }
+    navigate('/main');
   };
+
+  function handleRememberMe(e: any) {
+    console.log(e.target.checked);
+    setIsRememberMe(e.target.checked);
+  }
 
   useEffect(() => {
     let grayout: HTMLSelectElement | null = document.querySelector('.grayout');
@@ -95,6 +103,21 @@ const Login: React.FC<LoginProps> = ({ seIsLogin }) => {
               ></i>
             </div>
             <p className="login-form-error">{errors.password?.message}</p>
+          </div>
+
+          <div className="text-left mt-10">
+            <label
+              htmlFor="Remember me"
+              className="form-label select-none flex items-center cursor-pointer"
+            >
+              <input
+                type="checkbox"
+                id="Remember me"
+                className="mr-3 cursor-pointer"
+                onChange={handleRememberMe}
+              />
+              Your Password
+            </label>
           </div>
 
           <input type="submit" className="form__control login-btn-submit" />

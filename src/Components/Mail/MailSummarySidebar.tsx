@@ -2,10 +2,8 @@ import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import message from '../../mockData';
 import getFolderName from '../common/getFolderName';
-import getAnhCheckMailId from '../common/getAndCheckMailId';
 import MailSumary from './MailSumary';
 
-import contructionImg from '../../assets/img/contruction.png';
 import randomUnreadEmail from '../common/randomUnreadEmail';
 
 const MailSumarySidebar = () => {
@@ -28,10 +26,8 @@ const MailSumarySidebar = () => {
     }
   });
 
-  // let = randomUnreadEmail(targetMail.length);
-
   useEffect(() => {
-    setIsActive(9999999999999999999999999);
+    setIsActive(99999999999999999999999);
     setRandomArr(randomUnreadEmail(targetMail.length));
   }, [folderTarget]);
 
@@ -41,16 +37,15 @@ const MailSumarySidebar = () => {
         targetMail.length > 0 ? 'overflow-y-scroll' : 'border-r-2'
       } grab-to-change-size-left`}
     >
-      {targetMail.length > 0 &&
+      {targetMail.length > 0 ? (
         targetMail.map((item: any, index: number) => (
-          <div
-            key={index}
-            className={`${isActive === index ? 'mail-sumary-active' : ''}`}
-            onClick={() => handleClickOnLink(item, index)}
-          >
-            <MailSumary mail={item} index={index} randomArr={randomArr} />
+          <div key={index} onClick={() => handleClickOnLink(item, index)}>
+            <MailSumary mail={item} index={index} randomArr={randomArr} isActive={isActive} />
           </div>
-        ))}
+        ))
+      ) : (
+        <p className="mt-5 text-[2rem] ">Choose your folder</p>
+      )}
     </div>
   );
 };
