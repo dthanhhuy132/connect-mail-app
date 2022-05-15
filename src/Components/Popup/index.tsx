@@ -28,13 +28,13 @@ const PopUp: React.FC<PopupProps> = ({
         <h5 className="pop-up-text mb-5 text-[1.5rem] whitespace-nowrap">{text}</h5>
         <div className="pop-up-button flex">
           <button
-            className="bg-blue-600 w-[70px] p-3 mx-1 pr-6 pl-6 rounded-2xl flex justify-center items-center text-[white] text-[1.4rem] hover:bg-blue-400"
+            className="flex items-center justify-center duration-100 w-[75px]  gap-2 px-6 py-2 mx-2 text-[1.3rem] rounded-md border border-red-500 text-red-500 hover:bg-red-200"
             onClick={handleClickLogout}
           >
             Sure
           </button>
           <button
-            className="bg-green-600 w-[70px] p-3 mx-1 pr-6 pl-6 rounded-2xl flex justify-center items-center text-[white] text-[1.4rem] hover:bg-green-400"
+            className="flex items-center justify-center duration-100 w-[75px]  gap-2 px-6 py-2 mx-2 text-[1.3rem] rounded-md border border-green-500 text-green-500 hover:bg-green-200"
             onClick={handleClickCancel}
           >
             Cancel

@@ -11,13 +11,13 @@ const MailDetailButton: React.FC<MailDetailButtonProps> = ({ email }) => {
         {dayjs(email.date).format('HH:MM - MM/HH/YYYY')}
       </p>
       <div className="flex items-center justify-end gap-1">
-        <button className="flex items-center justify-center duration-100 shadow-md gap-2 px-6 py-5 mx-2 text-[1.3rem] rounded-md bg-gray-500 text-white hover:bg-gray-400 false ">
+        <button className="flex items-center justify-center duration-100 shadow-md gap-2 px-6 py-5 mx-2 text-[1.3rem] rounded-md bg-gray-500 text-white hover:bg-gray-400">
           Reply
         </button>
-        <button className="flex items-center justify-center duration-100 shadow-md gap-2 px-6 py-5 mx-2 text-[1.3rem] rounded-md border border-green-500 text-green-500 hover:bg-green-200 false ">
+        <button className="flex items-center justify-center duration-100 shadow-md gap-2 px-6 py-5 mx-2 text-[1.3rem] rounded-md border border-green-500 text-green-500 hover:bg-green-200">
           Forward
         </button>
-        <button className="flex items-center justify-center duration-100 shadow-md gap-2 px-6 py-5 mx-2 text-[1.3rem] rounded-md border border-red-500 text-red-500 hover:bg-red-200 false ">
+        <button className="flex items-center justify-center duration-100 shadow-md gap-2 px-6 py-5 mx-2 text-[1.3rem] rounded-md border border-red-500 text-red-500 hover:bg-red-200">
           Delete
         </button>
       </div>

@@ -3,7 +3,7 @@ import Mail from '../../Components/Mail';
 
 const DashBoard = () => {
   return (
-    <div className="h-screen flex overflow-y-hidden">
+    <div className="h-screen flex overflow-y-hidden animate__animated animate__bounceInDown">
       <div className="w-1/6 max-h-full">
         <SideBar />
       </div>

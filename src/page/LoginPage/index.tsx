@@ -48,7 +48,7 @@ const Login: React.FC<LoginProps> = ({ seIsLogin }) => {
   });
 
   return (
-    <div className="login">
+    <div className="login animate__animated animate__bounceInDown">
       <div className="login-container">
         <div className="login__logo flex justify-center align-center">
           <BlackLogo />

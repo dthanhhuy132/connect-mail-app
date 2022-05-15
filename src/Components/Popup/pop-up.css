@@ -43,7 +43,7 @@
 
   background-color: #fff;
   z-index: 103;
-  box-shadow: 1px 1px 50px #fff;
+  box-shadow: 1px 1px 15px #fff;
 
   opacity: 1;
   transform: scale(1) translateX(-190px);

@@ -14,16 +14,16 @@ const LoadingPage = () => {
     if (!isLogin) {
       setTimeout(() => {
         navigate('/login');
-      }, 2700);
+      }, 3500);
     } else {
       setTimeout(() => {
         navigate('/main/email');
-      }, 2700);
+      }, 3500);
     }
   });
 
   return (
-    <div className="m-w-screen h-screen bg-blue-900 flex justify-center items-center flex-col">
+    <div className="m-w-screen h-screen bg-blue-900 flex justify-center items-center flex-col animate__animated animate__bounceOutDown animate__delay-3s">
       <div className="flex text-[3rem] mb-[-20px] items-center">
         <div className="text-white font-bold text-[15rem] dth-c-text">C</div>
         <div
