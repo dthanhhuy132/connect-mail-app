@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import randomAvatar from '../common/randomAvatar';
 import dayjs from 'dayjs';
 

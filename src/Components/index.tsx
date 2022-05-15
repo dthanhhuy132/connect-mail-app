@@ -1,6 +1,5 @@
 import { FC } from 'react';
 
-import mockData from '../mockData';
 import WhiteLogo from './Logo/WhiteLogo';
 import FolderSideBar from './SideBar/FolderSideBar';
 import MainSideBar from './SideBar/MainSideBar';

@@ -1,7 +1,5 @@
-import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import huang from '../../../assets/img/Huang.jpg';
 import getAndCheckMailId from '../../common/getAndCheckMailId';
 import getEmailFormEmail from '../../common/getEmailFromEmail';
 import getFolderName from '../../common/getFolderName';

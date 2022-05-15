@@ -12,7 +12,6 @@ const FolderSideBar: FC = () => {
     setIsActive(index);
   }
 
-  // const folderName = get;
   let subMainText = getSubMainPage(location.pathname);
 
   useEffect(() => {
@@ -22,6 +21,7 @@ const FolderSideBar: FC = () => {
     } else {
       setIsContruction(false);
     }
+    // eslint-disable-next-line
   }, [subMainText]);
 
   return (

@@ -46,7 +46,6 @@ export default function changeWidthSize() {
         ) {
           return;
         } else {
-          console.log(leftItem.getBoundingClientRect().width);
           if (leftItem.getBoundingClientRect().width > 350) {
             mailSummaryTimeEls.forEach(
               (mailSummaryTimeEl) => (mailSummaryTimeEl.style.display = 'inline-block')

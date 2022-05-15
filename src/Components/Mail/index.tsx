@@ -42,7 +42,7 @@ const Mail: React.FC = () => {
 
       <div className=" w-full h-full flex items-center pb-[60px] mail-parent relative">
         {isContruction ? (
-          <img src={contructionImg} className="mx-auto mb-[200px]" />
+          <img src={contructionImg} className="mx-auto mb-[200px]" alt="img" />
         ) : (
           <>
             <div className="absolute top-0 bg-transparent z-10 w-[5px] h-full cursor-col-resize change-size-bar hidden"></div>

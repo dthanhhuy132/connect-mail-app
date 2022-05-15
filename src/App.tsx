@@ -1,12 +1,8 @@
 import 'animate.css';
 import './App.css';
 
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import SideBar from './Components';
-import Mail from './Components/Mail';
-import FolderSideBar from './Components/SideBar/FolderSideBar';
-import MainSideBar from './Components/SideBar/MainSideBar';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 import DashBoard from './page/DashBoard';
 import Login from './page/LoginPage';
@@ -17,9 +13,8 @@ function App() {
 
   useEffect(() => {
     navigate('/');
-    // if (!isLogin) {
-    //   navigate('/login');
-    // }
+
+    // eslint-disable-next-line
   }, []);
 
   return (

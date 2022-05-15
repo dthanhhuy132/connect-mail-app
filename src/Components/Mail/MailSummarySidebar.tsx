@@ -29,6 +29,7 @@ const MailSumarySidebar = () => {
   useEffect(() => {
     setIsActive(99999999999999999999999);
     setRandomArr(randomUnreadEmail(targetMail.length));
+    // eslint-disable-next-line
   }, [folderTarget]);
 
   return (
