@@ -16,11 +16,6 @@ const MailDetail: React.FC = () => {
   let email: any = getMailDetail(mailId, isMailIdValid);
   let folderName = getFolderName(location.pathname);
 
-  const folderTarget = getFolderName(location.pathname);
-  useEffect(() => {
-    console.log('trong day can phai ren der cai gi do');
-  }, [folderTarget]);
-
   return (
     <div className="h-full w-3/4 text-left grab-to-change-size-right relative">
       {email ? (

@@ -10,7 +10,7 @@ const mainSideBar = [
 ];
 
 const MainSideBar: FC = () => {
-  const [isActive, setIsActive] = useState<number>(0);
+  const [isActive, setIsActive] = useState<number>(1);
   const location = useLocation();
 
   function handleClickActive(index: number) {

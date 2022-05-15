@@ -17,7 +17,7 @@ const LoadingPage = () => {
       }, 2700);
     } else {
       setTimeout(() => {
-        navigate('/main');
+        navigate('/main/email');
       }, 2700);
     }
   });

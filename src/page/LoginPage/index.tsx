@@ -29,7 +29,7 @@ const Login: React.FC<LoginProps> = ({ seIsLogin }) => {
     if (isRememberMe) {
       localStorage.setItem('LOGIN_LUON_DI_EM_OI', JSON.stringify(isRememberMe));
     }
-    navigate('/main');
+    navigate('/main/email');
   };
 
   function handleRememberMe(e: any) {
@@ -116,7 +116,7 @@ const Login: React.FC<LoginProps> = ({ seIsLogin }) => {
                 className="mr-3 cursor-pointer"
                 onChange={handleRememberMe}
               />
-              Your Password
+              Remember me!
             </label>
           </div>
 

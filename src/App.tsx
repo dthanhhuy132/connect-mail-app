@@ -16,7 +16,7 @@ function App() {
   let navigate = useNavigate();
 
   useEffect(() => {
-    // navigate('/');
+    navigate('/');
     // if (!isLogin) {
     //   navigate('/login');
     // }

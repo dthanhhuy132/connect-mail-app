@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import randomAvatar from '../common/randomAvatar';
+import dayjs from 'dayjs';
 
 interface MailSumaryProps {
   index: number;
@@ -10,13 +11,18 @@ interface MailSumaryProps {
 
 const MailSumary: React.FC<MailSumaryProps> = ({ index, mail, randomArr, isActive }) => {
   const [isRead, setIsRead] = useState(false);
+  const summaryMail = useRef(null);
+  const summaryMailTime = useRef(null);
 
   function handleOnlickToReadMail() {
     setIsRead(true);
   }
 
+  useEffect(() => {}, []);
+
   return (
     <div
+      ref={summaryMail}
       className={`w-full p-4 pt-6 flex border-grey-light-hd 
       ${randomArr.indexOf(index) > -1 ? 'bg-[#e5e7eb]' : ''}
       
@@ -36,7 +42,10 @@ const MailSumary: React.FC<MailSumaryProps> = ({ index, mail, randomArr, isActiv
           <p className="line-clamp-1 text-left">
             {mail.senderName.first + ' ' + mail.senderName.last}
           </p>
-          <p>29/6/2020</p>
+          <p>
+            <span ref={summaryMailTime}> {dayjs(mail.date).format('HH:MM')} - </span>
+            <span> {dayjs(mail.date).format('MM/HH/YYYY')}</span>
+          </p>
         </div>
 
         <p className="text-left line-clamp-1 text-[1.4rem] font-[500] mb-1">{mail.subject}</p>
