@@ -11,18 +11,13 @@ interface MailSumaryProps {
 
 const MailSumary: React.FC<MailSumaryProps> = ({ index, mail, randomArr, isActive }) => {
   const [isRead, setIsRead] = useState(false);
-  const summaryMail = useRef(null);
-  const summaryMailTime = useRef(null);
 
   function handleOnlickToReadMail() {
     setIsRead(true);
   }
 
-  useEffect(() => {}, []);
-
   return (
     <div
-      ref={summaryMail}
       className={`w-full p-4 pt-6 flex border-grey-light-hd 
       ${randomArr.indexOf(index) > -1 ? 'bg-[#e5e7eb]' : ''}
       
@@ -43,7 +38,7 @@ const MailSumary: React.FC<MailSumaryProps> = ({ index, mail, randomArr, isActiv
             {mail.senderName.first + ' ' + mail.senderName.last}
           </p>
           <p>
-            <span ref={summaryMailTime}> {dayjs(mail.date).format('HH:MM')} - </span>
+            <span className="mail-summary-time"> {dayjs(mail.date).format('HH:MM')} - </span>
             <span> {dayjs(mail.date).format('MM/HH/YYYY')}</span>
           </p>
         </div>

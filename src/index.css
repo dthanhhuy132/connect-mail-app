@@ -71,3 +71,7 @@ html {
   background-color: #3b82f6;
   color: white !important;
 }
+
+.mail-summary-time {
+  display: none;
+}

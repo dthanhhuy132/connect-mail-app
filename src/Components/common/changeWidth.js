@@ -8,6 +8,8 @@ export default function changeWidthSize() {
   const mailParentEl = document.querySelector('.mail-parent');
   const changeSizeBarEl = document.querySelector('.change-size-bar');
 
+  const mailSummaryTimeEls = document.querySelectorAll('.mail-summary-time');
+
   if (leftItem && rightItem && headerEl && mailParentEl && changeSizeBarEl) {
     let windowInnerWidth = window.innerWidth;
     let headerInnerWidth = headerEl.getBoundingClientRect().width;
@@ -21,6 +23,8 @@ export default function changeWidthSize() {
       isMouseDown = true;
       disableTextSelect();
     });
+
+    rightItem.addEventListener('resize', () => {});
 
     mailParentEl.addEventListener('mouseup', (e) => {
       if (isMouseDown) isMouseDown = false;
@@ -42,6 +46,16 @@ export default function changeWidthSize() {
         ) {
           return;
         } else {
+          console.log(leftItem.getBoundingClientRect().width);
+          if (leftItem.getBoundingClientRect().width > 350) {
+            mailSummaryTimeEls.forEach(
+              (mailSummaryTimeEl) => (mailSummaryTimeEl.style.display = 'inline-block')
+            );
+          } else if (leftItem.getBoundingClientRect().width < 350) {
+            mailSummaryTimeEls.forEach(
+              (mailSummaryTimeEl) => (mailSummaryTimeEl.style.display = 'none')
+            );
+          }
           changeSize(e.pageX);
         }
       }
